@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:id="@+id/amountEditText"
+        android:id="@+id/weightEditText"
         android:layout_column="0"
         android:digits="0123456789"
         android:maxLength="6"
@@ -27,11 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/amountTextView"
+        android:id="@+id/weightTextView"
         android:layout_row="0"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:hint="@string/enter_amount"
+        android:hint="@string/enter_weight"
         android:layout_gravity="fill_horizontal"
         android:background="@color/amount_background"
         android:padding="@dimen/textview_padding"
@@ -41,43 +41,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/tip_percentage"
-        android:id="@+id/percentTextView"
+        android:text="@string/set_your_height"
+        android:id="@+id/heightTextView"
         android:layout_gravity="center_vertical|right"/>
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="@dimen/seekbar_height"
-        android:id="@+id/percentSeekBar"
+        android:id="@+id/heightSeekBar"
         android:indeterminate="false"
-        android:max="30"
-        android:progress="15"
+        android:min="125"
+        android:max="250"
+        android:progress="175"
         android:layout_gravity="fill_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/tip"
-        android:id="@+id/tipLabelTextView"
-        android:layout_gravity="right"/>
-
-    <TextView
-        android:id="@+id/tipTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill_horizontal"
-        android:background="@color/result_background"
-        android:elevation="@dimen/elevation"
-        android:gravity="center"
-        android:padding="@dimen/textview_padding"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/total"
+        android:text="@string/BMI_Value"
         android:id="@+id/totalLabelTextView"
         android:layout_gravity="right"/>
 
@@ -85,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/totalTextView"
+        android:id="@+id/BMITextView"
         android:layout_gravity="fill_horizontal"
         android:background="@color/result_background"
         android:gravity="center"

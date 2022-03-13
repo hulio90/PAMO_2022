@@ -15,17 +15,16 @@ import java.text.NumberFormat; // for currency formatting
 public class MainActivity extends AppCompatActivity {
 
     // currency and percent formatter objects
-    private static final NumberFormat currencyFormat =
-            NumberFormat.getCurrencyInstance();
-    private static final NumberFormat percentFormat =
-            NumberFormat.getPercentInstance();
+    private static final NumberFormat numberFormat =
+            NumberFormat.getNumberInstance();
+//    private static final NumberFormat percentFormat =
+//            NumberFormat.getPercentInstance();
 
-    private double billAmount = 0.0; // bill amount entered by the user
-    private double percent = 0.15; // initial tip percentage
-    private TextView amountTextView; // shows formatted bill amount
-    private TextView percentTextView; // shows tip percentage
-    private TextView tipTextView; // shows calculated tip amount
-    private TextView totalTextView; // shows calculated total bill amount
+    private double weightValue = 0.0; // bill amount entered by the user
+    private double heightValue = 1.75; // initial tip percentage
+    private TextView weightTextView; // shows formatted bill amount
+    private TextView heightTextView; // shows tip percentage
+    private TextView BMITextView; // shows calculated total bill amount
 
     // called when the activity is first created
     @Override
@@ -34,36 +33,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // inflate the GUI
 
         // get references to programmatically manipulated TextViews
-        amountTextView = (TextView) findViewById(R.id.amountTextView);
-        percentTextView = (TextView) findViewById(R.id.percentTextView);
-        tipTextView = (TextView) findViewById(R.id.tipTextView);
-        totalTextView = (TextView) findViewById(R.id.totalTextView);
-        tipTextView.setText(currencyFormat.format(0));
-        totalTextView.setText(currencyFormat.format(0));
+        weightTextView = (TextView) findViewById(R.id.weightTextView);
+        heightTextView = (TextView) findViewById(R.id.heightTextView);
+        BMITextView = (TextView) findViewById(R.id.BMITextView);
+        BMITextView.setText(numberFormat.format(0));
 
-        // set amountEditText's TextWatcher
-        EditText amountEditText =
-                (EditText) findViewById(R.id.amountEditText);
-        amountEditText.addTextChangedListener(amountEditTextWatcher);
+        // set weightEditText's TextWatcher
+        EditText weightEditText =
+                (EditText) findViewById(R.id.weightEditText);
+        weightEditText.addTextChangedListener(weightEditTextWatcher);
 
-        // set percentSeekBar's OnSeekBarChangeListener
-        SeekBar percentSeekBar =
-                (SeekBar) findViewById(R.id.percentSeekBar);
-        percentSeekBar.setOnSeekBarChangeListener(seekBarListener);
+        // set heightSeekBar's OnSeekBarChangeListener
+        SeekBar heightSeekBar =
+                (SeekBar) findViewById(R.id.heightSeekBar);
+        heightSeekBar.setOnSeekBarChangeListener(seekBarListener);
     }
 
     // calculate and display tip and total amounts
     private void calculate() {
         // format percent and display in percentTextView
-        percentTextView.setText(percentFormat.format(percent));
+        heightTextView.setText(numberFormat.format(heightValue));
 
-        // calculate the tip and total
-        double tip = billAmount * percent;
-        double total = billAmount + tip;
+        // calculate the BMI value
+        double denominator_pow = Math.pow(heightValue,2);
+        double BMIValue = weightValue / denominator_pow;
 
         // display tip and total formatted as currency
-        tipTextView.setText(currencyFormat.format(tip));
-        totalTextView.setText(currencyFormat.format(total));
+        BMITextView.setText(numberFormat.format(BMIValue));
     }
 
     // listener object for the SeekBar's progress changed events
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress,
                                               boolean fromUser) {
-                    percent = progress / 100.0; // set percent based on progress
+                    heightValue = progress / 100.0; // set percent based on progress
                     calculate(); // calculate and display tip and total
                 }
 
@@ -85,19 +81,19 @@ public class MainActivity extends AppCompatActivity {
             };
 
     // listener object for the EditText's text-changed events
-    private final TextWatcher amountEditTextWatcher = new TextWatcher() {
+    private final TextWatcher weightEditTextWatcher = new TextWatcher() {
         // called when the user modifies the bill amount
         @Override
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
 
             try { // get bill amount and display currency formatted value
-                billAmount = Double.parseDouble(s.toString()) / 100.0;
-                amountTextView.setText(currencyFormat.format(billAmount));
+                weightValue = Double.parseDouble(s.toString()) / 100.0;
+                weightTextView.setText(numberFormat.format(weightValue));
             }
             catch (NumberFormatException e) { // if s is empty or non-numeric
-                amountTextView.setText("");
-                billAmount = 0.0;
+                weightTextView.setText("");
+                weightValue = 0.0;
             }
 
             calculate(); // update the tip and total TextViews
