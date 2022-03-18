@@ -70,31 +70,31 @@ public class MainActivity extends AppCompatActivity {
             SummaryTextView.setText("wygłodzenie");
             SummaryTextView.setTextColor(Color.rgb(153, 0, 0));
         }
-        else if(BMIValue > 16.0 && BMIValue <= 16.9){
+        else if(BMIValue >= 16.0 && BMIValue < 17.0){
             SummaryTextView.setText("wychudzenie");
             SummaryTextView.setTextColor(Color.rgb(255, 0, 0));
         }
-        else if(BMIValue > 17.0 && BMIValue <= 18.5){
+        else if(BMIValue >= 17.0 && BMIValue < 18.5){
             SummaryTextView.setText("niedowaga");
             SummaryTextView.setTextColor(Color.rgb(230, 230, 0));
         }
-        else if(BMIValue > 18.5 && BMIValue <= 24.9){
+        else if(BMIValue >= 18.5 && BMIValue < 25.0){
             SummaryTextView.setText("waga prawidłowa");
             SummaryTextView.setTextColor(Color.rgb(0, 255, 0));
         }
-        else if(BMIValue > 25.0 && BMIValue <= 29.9){
+        else if(BMIValue >= 25.0 && BMIValue < 30.0){
             SummaryTextView.setText("nadwaga");
             SummaryTextView.setTextColor(Color.rgb(255, 128, 0));
         }
-        else if(BMIValue > 30.0 && BMIValue <= 34.9){
+        else if(BMIValue >= 30.0 && BMIValue < 35.0){
             SummaryTextView.setText("otyłość I stopnia");
             SummaryTextView.setTextColor(Color.rgb(255, 0, 0));
         }
-        else if(BMIValue > 35.0 && BMIValue <= 39.9){
+        else if(BMIValue >= 35.0 && BMIValue < 40.0){
             SummaryTextView.setText("otyłość II stopnia");
             SummaryTextView.setTextColor(Color.rgb(102, 0, 0));
         }
-        else if(BMIValue > 40.0){
+        else if(BMIValue >= 40.0){
             SummaryTextView.setText("otyłość III stopnia");
             SummaryTextView.setTextColor(Color.rgb(51, 0, 0));
         }
