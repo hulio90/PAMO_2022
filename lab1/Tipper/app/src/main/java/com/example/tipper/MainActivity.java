@@ -1,3 +1,11 @@
+/**
+ * BMI Calculator
+ * Simple Body mass index calculator in Java
+ *
+ * @author  Sebastian Lewandowski
+ * @version 1.0
+ */
+
 package com.example.tipper;
 
 import androidx.appcompat.app.AppCompatActivity;
