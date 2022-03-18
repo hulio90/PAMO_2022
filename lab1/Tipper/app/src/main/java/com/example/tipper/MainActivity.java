@@ -2,6 +2,7 @@ package com.example.tipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable; // for EditText event handling
 import android.text.TextWatcher; // EditText listener
@@ -20,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
 //    private static final NumberFormat percentFormat =
 //            NumberFormat.getPercentInstance();
 
-    private double weightValue = 0.0; // bill amount entered by the user
-    private double heightValue = 1.75; // initial tip percentage
-    private TextView weightTextView; // shows formatted bill amount
-    private TextView heightTextView; // shows tip percentage
-    private TextView BMITextView; // shows calculated total bill amount
+    private double weightValue = 0.0; // weight value entered by the user
+    private double heightValue = 1.75; // initial height value
+    private TextView weightTextView; // shows formatted weight
+    private TextView heightTextView; // shows height value set up by user
+    private TextView BMITextView; // shows calculated BMI value
+    private TextView SummaryTextView;
 
     // called when the activity is first created
     @Override
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         weightTextView = (TextView) findViewById(R.id.weightTextView);
         heightTextView = (TextView) findViewById(R.id.heightTextView);
         BMITextView = (TextView) findViewById(R.id.BMITextView);
+        SummaryTextView = (TextView) findViewById(R.id.SummaryTextView);
+
         BMITextView.setText(numberFormat.format(0));
 
         // set weightEditText's TextWatcher
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         heightSeekBar.setOnSeekBarChangeListener(seekBarListener);
     }
 
-    // calculate and display tip and total amounts
+    // calculate and display BMI value
     private void calculate() {
         // format percent and display in percentTextView
         heightTextView.setText(numberFormat.format(heightValue));
@@ -58,19 +62,55 @@ public class MainActivity extends AppCompatActivity {
         double denominator_pow = Math.pow(heightValue,2);
         double BMIValue = weightValue / denominator_pow;
 
-        // display tip and total formatted as currency
+        // display formatted BMI value
         BMITextView.setText(numberFormat.format(BMIValue));
+
+        // print summary for calculated BMI value
+        if(BMIValue < 16.0){
+            SummaryTextView.setText("wygłodzenie");
+            SummaryTextView.setTextColor(Color.rgb(153, 0, 0));
+        }
+        else if(BMIValue > 16.0 && BMIValue <= 16.9){
+            SummaryTextView.setText("wychudzenie");
+            SummaryTextView.setTextColor(Color.rgb(255, 0, 0));
+        }
+        else if(BMIValue > 17.0 && BMIValue <= 18.5){
+            SummaryTextView.setText("niedowaga");
+            SummaryTextView.setTextColor(Color.rgb(230, 230, 0));
+        }
+        else if(BMIValue > 18.5 && BMIValue <= 24.9){
+            SummaryTextView.setText("waga prawidłowa");
+            SummaryTextView.setTextColor(Color.rgb(0, 255, 0));
+        }
+        else if(BMIValue > 25.0 && BMIValue <= 29.9){
+            SummaryTextView.setText("nadwaga");
+            SummaryTextView.setTextColor(Color.rgb(255, 128, 0));
+        }
+        else if(BMIValue > 30.0 && BMIValue <= 34.9){
+            SummaryTextView.setText("otyłość I stopnia");
+            SummaryTextView.setTextColor(Color.rgb(255, 0, 0));
+        }
+        else if(BMIValue > 35.0 && BMIValue <= 39.9){
+            SummaryTextView.setText("otyłość II stopnia");
+            SummaryTextView.setTextColor(Color.rgb(102, 0, 0));
+        }
+        else if(BMIValue > 40.0){
+            SummaryTextView.setText("otyłość III stopnia");
+            SummaryTextView.setTextColor(Color.rgb(51, 0, 0));
+        }
+        else
+            SummaryTextView.setText("");
     }
 
     // listener object for the SeekBar's progress changed events
     private final OnSeekBarChangeListener seekBarListener =
             new OnSeekBarChangeListener() {
-                // update percent, then call calculate
+                // update height, then call calculate
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress,
                                               boolean fromUser) {
-                    heightValue = progress / 100.0; // set percent based on progress
-                    calculate(); // calculate and display tip and total
+                    heightValue = progress / 100.0 ; // set height based on progress
+                    calculate(); // calculate and display BMI
                 }
 
                 @Override
@@ -87,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
 
-            try { // get bill amount and display currency formatted value
-                weightValue = Double.parseDouble(s.toString()) / 100.0;
+            try { // get weight and display formatted value
+                weightValue = Double.parseDouble(s.toString()) / 10.0;
                 weightTextView.setText(numberFormat.format(weightValue));
             }
             catch (NumberFormatException e) { // if s is empty or non-numeric
@@ -96,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 weightValue = 0.0;
             }
 
-            calculate(); // update the tip and total TextViews
+            calculate(); // update the BMI TextView
         }
 
         @Override
