@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196f3</color>
+    <color name="colorPrimaryDark">#1976d2</color>
+    <color name="colorAccent">#ff9100</color>
+    <color name="weight_background">#BBDEFB</color>
+    <color name="height_background">#F3CEFA</color>
+    <color name="BMI_background">#BFB3D6</color>
+</resources>
+
