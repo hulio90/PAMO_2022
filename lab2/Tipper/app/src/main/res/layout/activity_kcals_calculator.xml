@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:columnCount="2"
     tools:context=".KCalsCalculatorActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/select_sex_txt" />
+
+    <Spinner
+        android:id="@+id/sex_spinner"
+        android:layout_column="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="50dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingTop="30dp"
+        android:text="@string/txt_your_age" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:maxLength="3"
+        android:layout_marginStart="50dp"
+        android:paddingTop="30dp"
+        android:ems="4"
+        android:id="@+id/input_your_age"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingTop="30dp"
+        android:text="@string/txt_your_weight" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:maxLength="5"
+        android:ems="4"
+        android:layout_marginStart="50dp"
+        android:paddingTop="30dp"
+        android:id="@+id/input_your_weight"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingTop="30dp"
+        android:text="@string/txt_your_height"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:maxLength="3"
+        android:ems="4"
+        android:layout_marginStart="50dp"
+        android:paddingTop="30dp"
+        android:id="@+id/input_your_height" />
+
+</GridLayout>

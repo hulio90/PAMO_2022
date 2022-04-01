@@ -23,11 +23,9 @@ import java.text.NumberFormat; // for currency formatting
 
 public class BMICalculatorActivity extends AppCompatActivity {
 
-    // currency and percent formatter objects
+    // weight formatter
     private static final NumberFormat numberFormat =
             NumberFormat.getNumberInstance();
-//    private static final NumberFormat percentFormat =
-//            NumberFormat.getPercentInstance();
 
     private double weightValue = 0.0; // weight value entered by the user
     private double heightValue = 1.75; // initial height value

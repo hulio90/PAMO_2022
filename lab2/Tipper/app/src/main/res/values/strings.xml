@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">Your weight App</string>
     <string name="bmi_calculator_name">BMI Calculator</string>
-    <string name="kcal_calculator_name">Kcal Calculator</string>
     <string name="btn_calculator">BMI Calculator</string>
-    <string name="btn_kcal_calculator">Kcal Calculator</string>
     <string name="enter_weight">Enter your weight [kg]</string>
     <string name="height_info">Set up your height [m]</string>
     <string name="set_your_height">1.75</string>
     <string name="BMI_Value">BMI:</string>
+    <string name="kcal_calculator_name">Kcal Calculator</string>
+    <string name="btn_kcal_calculator">Kcal Calculator</string>
+    <string name="select_sex_txt">Select your sex:</string>
+    <string-array name="sex_spinner">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="txt_your_age">Enter your age:</string>
+    <string name="txt_your_weight">Enter your weight[kg]:</string>
+    <string name="txt_your_height">Enter your height[cm]:</string>
 </resources>
