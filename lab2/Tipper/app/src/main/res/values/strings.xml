@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">My BMI App</string>
+    <string name="app_name">Your weight App</string>
+    <string name="bmi_calculator_name">BMI Calculator</string>
+    <string name="kcal_calculator_name">Kcal Calculator</string>
     <string name="btn_calculator">BMI Calculator</string>
+    <string name="btn_kcal_calculator">Kcal Calculator</string>
     <string name="enter_weight">Enter your weight [kg]</string>
     <string name="height_info">Set up your height [m]</string>
     <string name="set_your_height">1.75</string>

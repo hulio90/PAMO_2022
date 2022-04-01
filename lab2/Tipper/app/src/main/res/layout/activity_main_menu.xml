@@ -16,7 +16,8 @@
         <ImageView
             android:id="@+id/appLogo"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
             app:srcCompat="@drawable/logo" />
 
         <Button
@@ -25,6 +26,11 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_calculator" />
 
+        <Button
+            android:id="@+id/btnOpenKcalCalculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_kcal_calculator" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,17 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BMICalculatorActivity">
+        <activity
+            android:name=".BMICalculatorActivity"
+            android:label="@string/bmi_calculator_name">
         </activity>
+        <activity
+            android:name=".KCalsCalculatorActivity"
+            android:label="@string/kcal_calculator_name" />
     </application>
 
 </manifest>
