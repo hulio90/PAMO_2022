@@ -16,4 +16,5 @@
     <string name="txt_your_age">Enter your age:</string>
     <string name="txt_your_weight">Enter your weight[kg]:</string>
     <string name="txt_your_height">Enter your height[cm]:</string>
+    <string name="txt_kcal">Kcal:</string>
 </resources>

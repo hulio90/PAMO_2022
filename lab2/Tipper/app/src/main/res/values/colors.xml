@@ -5,6 +5,8 @@
     <color name="colorAccent">#ff9100</color>
     <color name="weight_background">#BBDEFB</color>
     <color name="height_background">#F3CEFA</color>
+    <color name="input_background">#00bfff</color>
     <color name="BMI_background">#BFB3D6</color>
+    <color name="Kcal_background">#BFB3D6</color>
 </resources>
 
