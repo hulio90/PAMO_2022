@@ -20,11 +20,13 @@
         </activity>
         <activity
             android:name=".BMICalculatorActivity"
-            android:label="@string/bmi_calculator_name">
-        </activity>
+            android:label="@string/bmi_calculator_name" />
         <activity
             android:name=".KCalsCalculatorActivity"
             android:label="@string/kcal_calculator_name" />
+        <activity
+            android:name=".RecipesActivity"
+            android:label="@string/recipes_name" />
     </application>
 
 </manifest>

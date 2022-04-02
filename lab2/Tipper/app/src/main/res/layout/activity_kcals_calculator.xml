@@ -1,109 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:columnCount="2"
-    tools:context=".KCalsCalculatorActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/select_sex_txt" />
-
-    <Spinner
-        android:id="@+id/sex_spinner"
-        android:layout_column="1"
+    <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="50dp"
-        />
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:columnCount="2"
+        tools:context=".KCalsCalculatorActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:paddingTop="30dp"
-        android:text="@string/txt_your_age" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/select_sex_txt" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:digits="0123456789"
-        android:inputType="number"
-        android:maxLength="3"
-        android:layout_marginStart="50dp"
-        android:ems="4"
-        android:background="@color/input_background"
-        android:id="@+id/input_your_age"/>
+        <Spinner
+            android:id="@+id/sex_spinner"
+            android:layout_column="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="50dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:paddingTop="30dp"
-        android:text="@string/txt_your_weight" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingTop="30dp"
+            android:text="@string/txt_your_age" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:digits="0123456789"
-        android:inputType="numberDecimal"
-        android:maxLength="3"
-        android:ems="4"
-        android:layout_marginStart="50dp"
-        android:background="@color/input_background"
-        android:id="@+id/input_your_weight"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_marginStart="50dp"
+            android:ems="4"
+            android:background="@color/input_background"
+            android:id="@+id/input_your_age"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:paddingTop="30dp"
-        android:text="@string/txt_your_height"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingTop="30dp"
+            android:text="@string/txt_your_weight" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:digits="0123456789"
-        android:inputType="number"
-        android:maxLength="3"
-        android:ems="4"
-        android:layout_marginStart="50dp"
-        android:background="@color/input_background"
-        android:id="@+id/input_your_height" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:digits="0123456789"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:ems="4"
+            android:layout_marginStart="50dp"
+            android:background="@color/input_background"
+            android:id="@+id/input_your_weight"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:paddingTop="30dp"
-        android:text="@string/txt_kcal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingTop="30dp"
+            android:text="@string/txt_your_height"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/KcalTextView"
-        android:layout_gravity="fill_horizontal"
-        android:layout_column="1"
-        android:background="@color/Kcal_background"
-        android:minHeight="40dp"
-        android:gravity="left|center" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:maxLength="3"
+            android:ems="4"
+            android:layout_marginStart="50dp"
+            android:background="@color/input_background"
+            android:id="@+id/input_your_height" />
 
-</GridLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingTop="30dp"
+            android:text="@string/txt_kcal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/KcalTextView"
+            android:layout_gravity="fill_horizontal"
+            android:layout_column="1"
+            android:background="@color/Kcal_background"
+            android:minHeight="40dp"
+            android:gravity="left|center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/btnRecipes"
+            android:text="@string/btn_recipes"
+            tools:visibility="invisible" />
+
+    </GridLayout>
