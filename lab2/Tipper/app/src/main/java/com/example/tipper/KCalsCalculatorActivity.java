@@ -64,7 +64,11 @@ public class KCalsCalculatorActivity extends AppCompatActivity implements Adapte
         btnRecipes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(KCalsCalculatorActivity.this, RecipesActivity.class);
                 openRecipesActivityOnButtonClick();
+                String KcalValueToString = Double.toString(KcalValue);
+                i.putExtra("KcalValueToString", KcalValueToString);
+                startActivity(i);
             }
         });
     }
