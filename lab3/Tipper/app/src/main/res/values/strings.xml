@@ -22,6 +22,10 @@
     <string name="btn_backToMainMenu">Back to Main Menu</string>
     <string name="btn_quiz_activity">Quiz</string>
     <string name="quiz_name">Quiz</string>
-    <string name="nameOfBtnPreviewQuiz">Preview</string>
-    <string name="nameIfBtnNextQuiz">Next</string>
+    <string name="nameOfBtnPreviousQuiz">Preview</string>
+    <string name="nameOfBtnNextQuiz">Next</string>
+    <string name="nameOfBtnLastQuestion">Main Menu</string>
+    <string name="nameOfBtnClearAnswer">Try again</string>
+    <string name="errorNotSelectedAnswer">You need to select your answer before u go
+        to previous or next question</string>
 </resources>

@@ -8,5 +8,10 @@
     <color name="input_background">#00bfff</color>
     <color name="BMI_background">#BFB3D6</color>
     <color name="Kcal_background">#BFB3D6</color>
+    <color name="color_answer_button">#D5D4D4</color>
+    <color name="color_correct_answer">#00ff00</color>
+    <color name="color_incorrect_answer">#ff0000</color>
+    <color name="error_textbody_color">#ff4000</color>
+    <color name="font_color">#000000</color>
 </resources>
 

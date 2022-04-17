@@ -2,7 +2,7 @@ package com.example.tipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +18,9 @@ public class QuizActivity extends AppCompatActivity {
     private Button btnThirdAnswer;
     private Button btnFourthAnswer;
     private TextView txtQuestionCounter;
-    private Button btnPreviewQuestion;
+    private TextView msgIfYouNotAnswered;
+    private Button btnPreviousQuestion;
+    private Button btnClearAction;
     private Button btnNextQuestion;
 
     private int counter=0;
@@ -85,35 +87,93 @@ public class QuizActivity extends AppCompatActivity {
         btnThirdAnswer = (Button) findViewById(R.id.btnThirdOption);
         btnFourthAnswer= (Button) findViewById(R.id.btnFourthOption);
         txtQuestionCounter = (TextView) findViewById(R.id.txtQuestionCounter);
-        btnPreviewQuestion = (Button) findViewById(R.id.btnPreviewQuestion);
+        msgIfYouNotAnswered = (TextView) findViewById(R.id.msgIfYouNotAnswered);
+        btnPreviousQuestion = (Button) findViewById(R.id.btnPreviousQuestion);
+        btnClearAction = (Button) findViewById(R.id.btnClearAction);
         btnNextQuestion = (Button) findViewById(R.id.btnNextQuestion);
 
         printQuestion(counter);
 
+        btnPreviousQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (btnFirstAnswer.isSelected()
+                        || btnSecondAnswer.isSelected()
+                        || btnThirdAnswer.isSelected()
+                        || btnFourthAnswer.isSelected()) {
+                    if (counter > 0) {
+                        counter = counter - 1;
+                        printQuestion(counter);
+                    }
+                } else {
+                    msgIfYouNotAnswered.setText(R.string.errorNotSelectedAnswer);
+                }
+
+            }
+        });
+
+        btnClearAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cleanAction();
+            }
+        });
+
         btnNextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(counter < 5) {
-                    counter = counter + 1;
-                    printQuestion(counter);
+                if (btnFirstAnswer.isSelected()
+                        || btnSecondAnswer.isSelected()
+                        || btnThirdAnswer.isSelected()
+                        || btnFourthAnswer.isSelected()) {
+                    if(counter < 5) {
+                        counter = counter + 1;
+                        printQuestion(counter);
+                    } else if(counter == 5) {
+                        OpenMainMenuActivityOnButtonClick();
+                    }
+                } else {
+                    msgIfYouNotAnswered.setText(R.string.errorNotSelectedAnswer);
                 }
             }
         });
+    }
 
-        btnPreviewQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (counter > 0) {
-                    counter = counter - 1;
-                    printQuestion(counter);
-                }
-            }
-        });
+    private void buttonsVisible() {
+        if(counter == 5) {
+            btnNextQuestion.setText(R.string.nameOfBtnLastQuestion);
+        } else {
+            btnNextQuestion.setText(R.string.nameOfBtnNextQuiz);
+        }
+        if(counter == 0) {
+            btnPreviousQuestion.setVisibility(View.INVISIBLE);
+        } else {
+            btnPreviousQuestion.setVisibility(View.VISIBLE);
+        }
+    }
 
+    private void cleanAction(){
+        btnFirstAnswer.setBackgroundResource(R.color.color_answer_button);
+        btnSecondAnswer.setBackgroundResource(R.color.color_answer_button);
+        btnThirdAnswer.setBackgroundResource(R.color.color_answer_button);
+        btnFourthAnswer.setBackgroundResource(R.color.color_answer_button);
+        btnFirstAnswer.setSelected(false);
+        btnSecondAnswer.setSelected(false);
+        btnThirdAnswer.setSelected(false);
+        btnFourthAnswer.setSelected(false);
+        msgIfYouNotAnswered.setText("");
+    }
+
+    private void OpenMainMenuActivityOnButtonClick() {
+        Intent mainMenuActivity = new Intent(this, MainMenuActivity.class);
+        startActivity(mainMenuActivity);
     }
 
     private void printQuestion(int numb) {
-        Quiz q = quizList.get(numb);
+        cleanAction();
+        buttonsVisible();
+
+        final Quiz q = quizList.get(numb);
         txtQuestion.setText(q.getQuestion());
         btnFirstAnswer.setText(q.getFirstAnswer());
         btnSecondAnswer.setText(q.getSecondAnswer());
@@ -121,6 +181,69 @@ public class QuizActivity extends AppCompatActivity {
         btnFourthAnswer.setText(q.getFourthAnswer());
         txtQuestionCounter.setText("Question " + ++numb + "/6");
 
+        btnFirstAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!btnFirstAnswer.isSelected()
+                        && !btnSecondAnswer.isSelected()
+                        && !btnThirdAnswer.isSelected()
+                        && !btnFourthAnswer.isSelected()) {
+                            btnFirstAnswer.setSelected(true);
+                            if (btnFirstAnswer.getText().equals(q.getCorrectAnswer()))
+                                btnFirstAnswer.setBackgroundResource(R.color.color_correct_answer);
+                            else
+                                btnFirstAnswer.setBackgroundResource(R.color.color_incorrect_answer);
+                }
+            }
+        });
+
+        btnSecondAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!btnFirstAnswer.isSelected()
+                        && !btnSecondAnswer.isSelected()
+                        && !btnThirdAnswer.isSelected()
+                        && !btnFourthAnswer.isSelected()) {
+                    btnSecondAnswer.setSelected(true);
+                    if (btnSecondAnswer.getText().equals(q.getCorrectAnswer()))
+                        btnSecondAnswer.setBackgroundResource(R.color.color_correct_answer);
+                    else
+                        btnSecondAnswer.setBackgroundResource(R.color.color_incorrect_answer);
+                }
+            }
+        });
+
+        btnThirdAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!btnFirstAnswer.isSelected()
+                        && !btnSecondAnswer.isSelected()
+                        && !btnThirdAnswer.isSelected()
+                        && !btnFourthAnswer.isSelected()) {
+                    btnThirdAnswer.setSelected(true);
+                    if (btnThirdAnswer.getText().equals(q.getCorrectAnswer()))
+                        btnThirdAnswer.setBackgroundResource(R.color.color_correct_answer);
+                    else
+                        btnThirdAnswer.setBackgroundResource(R.color.color_incorrect_answer);
+                }
+            }
+        });
+
+        btnFourthAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!btnFirstAnswer.isSelected()
+                        && !btnSecondAnswer.isSelected()
+                        && !btnThirdAnswer.isSelected()
+                        && !btnFourthAnswer.isSelected()) {
+                    btnFourthAnswer.setSelected(true);
+                    if (btnFourthAnswer.getText().equals(q.getCorrectAnswer()))
+                        btnFourthAnswer.setBackgroundResource(R.color.color_correct_answer);
+                    else
+                        btnFourthAnswer.setBackgroundResource(R.color.color_incorrect_answer);
+                }
+            }
+        });
     }
 
 }
