@@ -15,16 +15,22 @@
         android:layout_weight="0.6"
         app:srcCompat="@drawable/logo" />
 
-        <Button
-            android:id="@+id/btnOpenCalculator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_calculator" />
+    <Button
+        android:id="@+id/btnOpenCalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_calculator" />
 
-        <Button
-            android:id="@+id/btnOpenKcalCalculator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_kcal_calculator" />
+    <Button
+        android:id="@+id/btnOpenKcalCalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_kcal_calculator" />
+
+    <Button
+        android:id="@+id/btnOpenQuizActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_quiz_activity" />
 
 </LinearLayout>

@@ -11,6 +11,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     Button btnOpenCalculator;
     Button btnOpenKcalCalculator;
+    Button btnOpenQuizActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         btnOpenCalculator = (Button)findViewById(R.id.btnOpenCalculator);
         btnOpenKcalCalculator = (Button)findViewById(R.id.btnOpenKcalCalculator);
+        btnOpenQuizActivity = (Button)findViewById(R.id.btnOpenQuizActivity);
 
         //BMI Calculator
         btnOpenCalculator.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +37,14 @@ public class MainMenuActivity extends AppCompatActivity {
                 openKcalCalculatorActivityOnButtonClick();
             }
         });
+
+        //Quiz
+        btnOpenQuizActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnOpenQuizActivityOnButtonClick();
+            }
+        });
     }
 
     //BMI method
@@ -49,4 +59,8 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(kcalCalculatorActivity);
     }
 
+    private void btnOpenQuizActivityOnButtonClick() {
+        Intent quizActivity = new Intent(this, QuizActivity.class);
+        startActivity(quizActivity);
+    }
 }

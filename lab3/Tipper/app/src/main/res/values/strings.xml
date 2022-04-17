@@ -20,4 +20,8 @@
     <string name="btn_recipes">Recipes</string>
     <string name="recipes_name">Recipes</string>
     <string name="btn_backToMainMenu">Back to Main Menu</string>
+    <string name="btn_quiz_activity">Quiz</string>
+    <string name="quiz_name">Quiz</string>
+    <string name="nameOfBtnPreviewQuiz">Preview</string>
+    <string name="nameIfBtnNextQuiz">Next</string>
 </resources>

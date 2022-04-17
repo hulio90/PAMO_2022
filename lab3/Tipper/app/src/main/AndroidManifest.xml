@@ -27,6 +27,9 @@
         <activity
             android:name=".RecipesActivity"
             android:label="@string/recipes_name" />
+        <activity
+            android:name=".QuizActivity"
+            android:label="@string/quiz_name" />
     </application>
 
 </manifest>
