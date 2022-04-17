@@ -10,10 +10,13 @@ package com.example.tipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable; // for EditText event handling
 import android.text.TextWatcher; // EditText listener
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText; // for bill amount input
 import android.widget.SeekBar; // for changing the tip percentage
 import android.widget.SeekBar.OnSeekBarChangeListener; // SeekBar listener
@@ -29,10 +32,12 @@ public class BMICalculatorActivity extends AppCompatActivity {
 
     private double weightValue = 0.0; // weight value entered by the user
     private double heightValue = 1.75; // initial height value
+    private double BMIValue =0.0;
     private TextView weightTextView; // shows formatted weight
     private TextView heightTextView; // shows height value set up by user
     private TextView BMITextView; // shows calculated BMI value
     private TextView SummaryTextView;
+    private Button btnOpenChartActivity;
 
     // called when the activity is first created
     @Override
@@ -45,6 +50,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
         heightTextView = (TextView) findViewById(R.id.heightTextView);
         BMITextView = (TextView) findViewById(R.id.BMITextView);
         SummaryTextView = (TextView) findViewById(R.id.SummaryTextView);
+        btnOpenChartActivity = (Button) findViewById(R.id.btnOpenChartActivity);
 
         BMITextView.setText(numberFormat.format(0));
 
@@ -57,6 +63,19 @@ public class BMICalculatorActivity extends AppCompatActivity {
         SeekBar heightSeekBar =
                 (SeekBar) findViewById(R.id.heightSeekBar);
         heightSeekBar.setOnSeekBarChangeListener(seekBarListener);
+
+        btnOpenChartActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(BMICalculatorActivity.this, ChartActivity.class);
+                OpenChartActivityOnButtonClick();
+                if (BMIValue != 0.0) {
+                    String bmiValueToString = Double.toString(BMIValue);
+                    i.putExtra("bmiValueToString", bmiValueToString);
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     // calculate and display BMI value
@@ -66,7 +85,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
 
         // calculate the BMI value
         double denominator_pow = Math.pow(heightValue,2);
-        double BMIValue = weightValue / denominator_pow;
+        BMIValue = weightValue / denominator_pow;
 
         // display formatted BMI value
         BMITextView.setText(numberFormat.format(BMIValue));
@@ -152,6 +171,12 @@ public class BMICalculatorActivity extends AppCompatActivity {
         public void beforeTextChanged(
                 CharSequence s, int start, int count, int after) { }
     };
+
+    private void OpenChartActivityOnButtonClick() {
+        Intent openChartActivity = new Intent(this, ChartActivity.class);
+        if(BMIValue != 0.0)
+            startActivity(openChartActivity);
+    }
 }
 
 

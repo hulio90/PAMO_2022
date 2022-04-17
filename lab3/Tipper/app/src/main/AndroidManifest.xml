@@ -30,6 +30,9 @@
         <activity
             android:name=".QuizActivity"
             android:label="@string/quiz_name" />
+        <activity
+            android:name=".ChartActivity"
+            android:label="@string/chart_name" />
     </application>
 
 </manifest>

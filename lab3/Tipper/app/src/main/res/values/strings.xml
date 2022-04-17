@@ -28,4 +28,6 @@
     <string name="nameOfBtnClearAnswer">Try again</string>
     <string name="errorNotSelectedAnswer">You need to select your answer before u go
         to previous or next question</string>
+    <string name="btnChartActivity">Chart</string>
+    <string name="chart_name">BMI chart</string>
 </resources>
