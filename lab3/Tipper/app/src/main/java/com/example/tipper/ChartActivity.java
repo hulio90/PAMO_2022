@@ -3,8 +3,11 @@ package com.example.tipper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -30,6 +33,7 @@ public class ChartActivity extends AppCompatActivity {
     double doubleBMIValue;
     BarChart chart;
     String currentDate;
+    private Button btnBackMainMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class ChartActivity extends AppCompatActivity {
         doubleBMIValue = Double.parseDouble(bmiValueToString);
 
         chart = (BarChart) findViewById(R.id.chart);
+        btnBackMainMenu = (Button) findViewById(R.id.btnBackMain);
 
         bmiFormatter();
         getTodayDate();
@@ -48,6 +53,13 @@ public class ChartActivity extends AppCompatActivity {
 
         //second version of chart(printing date + month as x value)
         showBMIBars();
+
+        btnBackMainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goBackToMainMenu();
+            }
+        });
     }
 
     private void bmiFormatter() {
@@ -119,10 +131,10 @@ public class ChartActivity extends AppCompatActivity {
         rightAxis.setEnabled(false);
 
         YAxis leftAxis = chart.getAxisLeft();
-        rightAxis.setTextSize(12);
-        rightAxis.setTextColor(Color.BLACK);
-        rightAxis.setAxisLineColor(Color.BLACK);
-        rightAxis.setLabelCount(4, true);
+        leftAxis.setTextSize(12);
+        leftAxis.setTextColor(Color.BLACK);
+        leftAxis.setAxisLineColor(Color.BLACK);
+        leftAxis.setLabelCount(4, true);
 
         BarDataSet barDataSet = new BarDataSet(entries, "BMI");
         barDataSet.setColor(Color.rgb(0, 0, 255));
@@ -132,6 +144,11 @@ public class ChartActivity extends AppCompatActivity {
         chart.setData(data);
         chart.getLegend().setEnabled(false);
         chart.getDescription().setEnabled(false);
+    }
+
+    private void goBackToMainMenu() {
+        Intent mainM = new Intent(this, MainMenuActivity.class);
+        startActivity(mainM);
     }
 
 }

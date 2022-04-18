@@ -30,4 +30,5 @@
         to previous or next question</string>
     <string name="btnChartActivity">Chart</string>
     <string name="chart_name">BMI chart</string>
+    <string name="btnChartToMainMenu">Main Menu</string>
 </resources>
