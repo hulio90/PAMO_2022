@@ -7,5 +7,12 @@
     <string name="quiz_name">Quiz</string>
     <string name="btn_quiz_activity">Quiz</string>
     <string name="btn_quit_app">Quit</string>
+    <string name="bmi_placeholder_weight">Enter your weight [kg]</string>
+    <string name="bmi_txt_setup_height">Set up your height [m]</string>
+    <string name="bmi_height_placeholder">1.75</string>
+    <string name="bmi_txt_your_bmi">Your BMI: </string>
+    <string name="bmi_placeholder">0.0</string>
+    <string name="btnChartActivity">Chart</string>
+    <string name="chart_name">BMI chart</string>
 
 </resources>
